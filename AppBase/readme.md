@@ -1,1 +1,1 @@
-Base para aplicacione ssimples, sin interface específica
+Base para aplicacione simples, sin interface específica

@@ -1,1 +1,1 @@
-Base para aplicacione simples, sin interface específica
+# Plantilla para aplicación simple

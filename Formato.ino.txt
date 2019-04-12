@@ -1,0 +1,176 @@
+  Para INICIO y FIN del archivo:
+//******************************************************************************
+
+  Para delimitar SECCIONES:
+//==============================================================================
+
+	Para SEPARAR entre elementos de una misma SECCIÓN
+//------------------------------------------------------------------------------
+
+  Para distinguir SECCIONES dentro del código
+//-----[ SECCIÓN_XYZ o PARTE DENTRO de una SECCIÓN ]-----
+
+  Para identificar FUNCIONES, RUTINAS o MACROS
+//- [ NOMBRE de la FUNCIÓN, RUTINA o MACRO ]-
+// Explicación breve de lo que realiza la FUNCIÓN, RUTINA o MACRO
+// Entradas:  Variable(s)...
+// Salidas:   Variable(s)...
+
+  Para identificar secciones en PRUEBA
+// ¡--> EN PRUEBA
+...
+...
+...
+// EN PRUEBA <--!
+
+  Para señalar zonas de COMPILACIÓN CONDICIONADA por IFs
+//..............................................................................
+
+.
+ -----------------
+| REGLAS BÁSICAS: |
+ -----------------
+ 
+. Abrir corchetes "{" en la misma línea en donde se define la sección que les 
+ocupa
+
+. Usar MAYÚSCULAS para constantes
+
+. Usar 'Camel case' para funciones, variables, identificadores, por ejemplo:
+ledRojo, entradaAnalogica, bcdToDec
+
+.  
+ -------------------------------------
+| ESTRUCTURA BÁSICA de la APLICACIÓN: |
+ -------------------------------------
+
+_ Carpeta con el nombre de la aplicación: AppSensado, conteniendo:
+___ Archivo básico: AppSensado.ino
+___ Archivo de Cabecera (opcional): AppSensado.h
+___ Archivos de Código Auxiliar (opcional) : Rutinas.cpp
+___ Archivos de apoyo a Código AUxiliar (opcional) Rutinas.h
+______ Carpeta Info (con información adicional de la aplicación)
+_________ Imágenes, Hojas de datos, Guías, Referencias, Etc.
+
+.
+ ------------------------------------------
+| ESTRUCTURA del ARCHIVO PRINCIPAL (*.ino) |
+ ------------------------------------------
+
+//******************************************************************************
+// ENCABEZADO --> Nombre de la aplicación
+// Función principal
+// Requerimentos
+// Uso particular o prioritario
+// CONEXIONES de los elementos y la tarjeta, por ejemplo:
+//.................................
+//. Conectar de la siguiente forma:
+//. GND --> GND
+//. Vcc --> +5V
+//. SDA --> A4
+//. SCL --> A5
+//. INT --> 2
+//................................
+// Alternativamente...
+// pin #2 es IN del sensor (alambre VERDE)
+// pin #3 es OUT de la tarjeta Arduino (alambre BLANCO)
+//.....................................................
+
+
+//==============================================================================
+//-----[ AJUSTES PRINCIPALES ]-----
+// Detalles de lo que debe considerarse (PENDIENTE o REALIZADO) para hacer 
+// funcional la aplicación.
+//
+//==============================================================================
+//---[ BIBLIOTECAS, RECURSOS y AJUSTES de la APLICACIÓN ]--- [OPCIONAL]
+// Aquí están: Definiciones, Bibliotecas, Recursos, Ajustes por elemento
+#include "AppGeneral.h"
+//==============================================================================
+//---[ ADMINISTRACIÓN del MENÚ ]--- [OPCIONAL]
+//--[ Estructura del árbol de SELECCIÓN, DESPLIEGUE y ACCIONES de opciones ]--
+#include "Estructura.h"
+//==============================================================================
+//---[ INSTANCIAS y DEFINICIONES ]--- (Alternativa y [OPCIONAL])
+// Aquí se pondrían las instancias y definiciones de lo que no se pudo declarar
+// en la sección de cabecera de este programa.
+// Cuando no se usa el archivo de cabecera AQUÍ se DECLARAN Definiciones e 
+// instancias requeridas.
+//==============================================================================
+// --> De preferencia en el ARCHIVO de CABECERA <---
+//---[ CONSTANTES que identifican RECURSOS de la APLICACIÓN ]---
+// --> De preferencia en el ARCHIVO de CABECERA <---
+// --- Generales
+// BAUD_RATE = 115200
+// LED_TEMPORIZADOR = 4
+// OTRAS_COSAS...
+//--- Específicas por tipo de tarjeta, periféricos o dispositivos
+//==============================================================================
+// --> De preferencia en el ARCHIVO de CABECERA <---
+//-----[ BIBLIOTECAS y RECURSOS de ELEMENTOS de la APLICACIÓN ]-----
+// --> De preferencia en el ARCHIVO de CABECERA <---
+// Asociados a los elementos que se encuentran en la aplicación (dispositivos,
+// periféricos, tarjetas, Etcétera).
+//==============================================================================
+// --> De preferencia en el ARCHIVO de CABECERA <---
+//---[ PROTOTIPOS de FUNCIONES ]--- [OPCIONAL]
+// --> De preferencia en el ARCHIVO de CABECERA <---
+// En caso de requerirse.
+//==============================================================================
+//---[ VARIABLES GLOBALES de la APLICACIÓN ]---
+// Por ejemplo:
+//int8_t edoLed = LOW;
+//int16_t timerUno = 2500;
+// Se asocian y separan las variables por elementos que les usan:
+// --- GENERALES
+// --- Para el MENÚ
+// --- Para el RTC
+// --- ...Etcétera
+//==============================================================================
+// --> De preferencia en ARCHIVO de SEPARADO <---
+//--[ CÓDIGO de APOYO, FUNCIONES, SUBRUTINAS, MACROS ]--- [OPCIONAL]
+// --> De preferencia en ARCHIVO de SEPARADO <---
+// Rutinas y Funciones que se emplearán en la aplicación.
+//==============================================================================
+// Setup()
+//==============================================================================
+// Loop()
+//==============================================================================
+//******************************************************************************
+
+
+
+//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+//		ANEXOS
+//
+// Ejemplo de identificación de alambrado:
+//==============================================================================
+//..............................................................................
+// wiring with UNO or Mega2560:
+//--------------POWER Pins--------------------------------
+//   5V  connects to DC 5V
+//   GND connects to Ground
+//   3V3 do not need to connect(NC)
+//--------------LCD Display Pins--------------------------
+//   LCD_RD   connects to Analog pin A0  
+//   LCD_WR   connects to Analog pin A1  
+//   LCD_RS   connects to Analog pin A2  
+//   LCD_CS   connects to Analog pin A3  
+//   LCD_RST  connects to Analog pin A4  
+//   LCD_D0   connects to digital pin 8  
+//   LCD_D1   connects to digital pin 9  
+//   LCD_D2   connects to digital pin 2
+//   LCD_D3   connects to digital pin 3
+//   LCD_D4   connects to digital pin 4
+//   LCD_D5   connects to digital pin 5
+//   LCD_D6   connects to digital pin 6
+//   LCD_D7   connects to digital pin 7
+//--------------SD-card fuction Pins ----------------------
+//This Connection Only for UNO, Do not support Mega2560
+//because they use different Hardware-SPI Pins
+//SD_SS    connects to digital pin 10
+//SD_DI    connects to digital pin 11
+//SD_DO    connects to digital pin 12
+//SD_SCK   connects to digital pin 13
+//..............................................................................
+//
